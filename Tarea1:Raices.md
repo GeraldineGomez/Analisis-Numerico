@@ -90,12 +90,11 @@ En La dinámica de fluidos computacional, es necesario utilizar métodos de disc
 
 La forma algebraica de la ecuación, es resuelta en cada uno de los volúmenes de control, generando un sistema de ecuaciones que debe ser resuelto numéricamente. El número de volúmenes de control a ser usado para el análisis debe ser establecido por medio del estudio de convergencia de malla, o sea, se analiza el mismo caso con mallas de refinamientos diferentes y se comparan los resultados. Cuando el resultado entre dos refinamientos de malla no sufre una gran alteración, se dice que la convergencia de malla fue alcanzada.
 
-
+- Malla de Dominios de Control
 
  ![dominio](https://user-images.githubusercontent.com/46997659/52270826-0c0e7380-2910-11e9-9a4d-6b953ebb98c5.jpg)
 
 
- ![malla](https://user-images.githubusercontent.com/46997659/52271209-0a917b00-2911-11e9-931e-3c4f2fc47871.png)
 
 
 
