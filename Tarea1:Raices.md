@@ -42,12 +42,7 @@ Tarea 1: Raices
           biseccion(-3,1)
 
 
-
-
-
-
-
-1.1 Gráfica Método bisección 
+- Gráfica Método bisección 
 
 
 ![metodo_biseccion](https://user-images.githubusercontent.com/46997659/52247924-e5bde900-28b9-11e9-9980-5f0a6189a55b.png)
