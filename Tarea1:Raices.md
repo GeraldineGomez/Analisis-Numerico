@@ -92,10 +92,10 @@ La forma algebraica de la ecuación, es resuelta en cada uno de los volúmenes d
 
 
 
-- ![dominio](https://user-images.githubusercontent.com/46997659/52270826-0c0e7380-2910-11e9-9a4d-6b953ebb98c5.jpg)
+ ![dominio](https://user-images.githubusercontent.com/46997659/52270826-0c0e7380-2910-11e9-9a4d-6b953ebb98c5.jpg)
 
 
-- ![malla](https://user-images.githubusercontent.com/46997659/52271139-e33aae00-2910-11e9-81ec-6e1f0764f7c1.png)
+ ![malla](https://user-images.githubusercontent.com/46997659/52271209-0a917b00-2911-11e9-931e-3c4f2fc47871.png)
 
 
 
