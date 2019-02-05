@@ -84,4 +84,14 @@ Tarea 1: Raíces
              puntoFijo(-3,1)
 
 
+3. Aplicaciones
+
+- En La dinámica de fluidos computacional, es necesario utilizar métodos de discretización, para resolver problemas de flujos multifásicos, reactivos o turbulentos, para lo cual en la mayoria de ocasiones es usado el método de volumenes finitos, en donde se intercambia el dominio continuo por un dominio discreto, este conjunto de volúmenes de control es utilizado para representar el dominio original, generando un ecuación de conservación para cada dominio de control.
+
+La forma algebraica de la ecuación, es resuelta en cada uno de los volúmenes de control, generando un sistema de ecuaciones que debe ser resuelto numéricamente. El número de volúmenes de control a ser usado para el análisis debe ser establecido por medio del estudio de convergencia de malla, o sea, se analiza el mismo caso con mallas de refinamientos diferentes y se comparan los resultados. Cuando el resultado entre dos refinamientos de malla no sufre una gran alteración, se dice que la convergencia de malla fue alcanzada.
+
+
+![dominio](https://user-images.githubusercontent.com/46997659/52270826-0c0e7380-2910-11e9-9a4d-6b953ebb98c5.jpg)
+
+
 
