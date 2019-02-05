@@ -23,25 +23,25 @@ x <- (a+b)/2
 i <- 0
 
 while (Fx(x) != 0 ) 
+
 {
 
-
-   error<-abs(a-b)/2
+ error<-abs(a-b)/2
    
-   if(error >= 1.e-8)
+ if(error >= 1.e-8)
    
-      if (Fx(x)*Fx(a) < 0) b <- x 
-          else {a <- x}
+   if (Fx(x)*Fx(a) < 0) b <- x 
+   else {a <- x}
     
-    else {break}
+ else {break}
   
-   x<-(a+b)/2
+ x<-(a+b)/2
       
-   text(x,0,i,cex=0.8,col="blue")
+ text(x,0,i,cex=0.8,col="blue")
      
-   i<-i+1
+ i<-i+1
      
-   cat("I=",i,"\tX=",x,"\tE=",error,"\n")
+ cat("I=",i,"\tX=",x,"\tE=",error,"\n")
 
 }
 
