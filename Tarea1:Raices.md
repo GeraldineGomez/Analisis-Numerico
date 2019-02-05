@@ -30,8 +30,8 @@ while (Fx(x) != 0 )
    
  if(error >= 1.e-8)
    
-   if (Fx(x)*Fx(a) < 0) b <- x 
-   else {a <- x}
+    if (Fx(x)*Fx(a) < 0) b <- x 
+    else {a <- x}
     
  else {break}
   
