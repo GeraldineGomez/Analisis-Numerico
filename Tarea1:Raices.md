@@ -9,6 +9,7 @@ Metodo de Biseccion
 
       biseccion <- function(a,b) 
       {
+      
       x<-seq(a,b,0.01)
       plot(x,Fx(x),type="l",col="red")
       abline(h=0,col="blue")
@@ -39,6 +40,7 @@ Metodo de Biseccion
 
       }
       biseccion(-3,1)
+
 
 
 
