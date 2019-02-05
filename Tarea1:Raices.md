@@ -21,6 +21,8 @@ i <- 0
 
 while (Fx(x) != 0 ) 
 {
+
+
    error<-abs(a-b)/2
    if(error >= 1.e-8)
      if (Fx(x)*Fx(a) < 0) b <- x 
