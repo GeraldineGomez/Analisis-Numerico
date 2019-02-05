@@ -1,10 +1,7 @@
-"
+
 Tarea 1: Raices
 
 1. Metodo de Biseccion 
-
-
-"
 
 rm(list=ls())
 Fx <- function(x) exp(x) - x*pi
@@ -46,6 +43,8 @@ biseccion(-3,1)
 
 
 - Grafica Metodo biseccion 
+
+
 
 
 ![metodo_biseccion](https://user-images.githubusercontent.com/46997659/52247924-e5bde900-28b9-11e9-9980-5f0a6189a55b.png)
