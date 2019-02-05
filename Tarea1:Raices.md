@@ -1,5 +1,5 @@
 
-Tarea 1: Raices
+Tarea 1: Raíces
 
 1. Método de Bisección 
 
