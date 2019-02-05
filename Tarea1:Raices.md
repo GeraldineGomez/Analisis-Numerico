@@ -52,46 +52,44 @@ Tarea 1: Raíces
 2. Método del Punto Fijo
 
 
-                rm(list=ls())
-                Fx <- function(x) exp(x) - x*pi
-                Gx <- function(x) exp(x) / pi
+             rm(list=ls())
+             Fx <- function(x) exp(x) - x*pi
+             Gx <- function(x) exp(x) / pi
 
 
 
-                puntoFijo <- function(a,b) 
-                {
+             puntoFijo <- function(a,b) 
+             {
 
 
-                if((Gx(a)-a)*(Gx(b)-b)<0)
-                {
+             if((Gx(a)-a)*(Gx(b)-b)<0)
+             {
 
-                  x<-(a+b)/2
-                  i<-0
-                  while (Gx(x) != x ) 
-                  {    
+               x<-(a+b)/2
+               i<-0
+               while (Gx(x) != x ) 
+               {    
 
-                       error<-abs(a-b)/2
+                   error<-abs(a-b)/2
 
-                       if(error > 1.e-8)
-                          if (Gx(x) < x) b <- x 
-                          else {a <- x}
+                   if(error > 1.e-8)
+                      if (Gx(x) < x) b <- x 
+                         else {a <- x}
                        else {break}  
+                   x<-(a+b)/2
 
-                       x<-(a+b)/2
+                   i<-i+1
+                   cat("I=",i,"\tG(x) =",Gx(x),"\tX=",signif(x, digits = 8),"\tE=",error,"\n")
+                }
 
-                       i<-i+1
-                       cat("I=",i,"\tG(x) =",Gx(x),"\tX=",signif(x, digits = 8),"\tE=",error,"\n")
-                  }
+             }
+            else
+            {
+             cat("No tiene raíz la funcion en ese intervalo\n")
+            }
+            }
 
-                 }
-                 else
-                 {
-                   cat("No tiene raíz la funcion\n")
-                 }
-
-              }
-
-              puntoFijo(0,1)
+            puntoFijo(0,1)
         
         
      
