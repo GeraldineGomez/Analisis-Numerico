@@ -1,8 +1,9 @@
-
 "
 Tarea 1: Raices
 
 1. Metodo de Biseccion 
+
+
 "
 
 rm(list=ls())
@@ -41,6 +42,8 @@ while (Fx(x) != 0 )
 
 }
 biseccion(-3,1)
+
+
 
 - Grafica Metodo biseccion 
 
