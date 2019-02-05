@@ -1,7 +1,7 @@
 
 Tarea 1: Raices
 
-Método de Bisección 
+1. Método de Bisección 
 
 
     rm(list=ls())
@@ -53,7 +53,8 @@ Método de Bisección
 ![metodo_biseccion](https://user-images.githubusercontent.com/46997659/52247924-e5bde900-28b9-11e9-9980-5f0a6189a55b.png)
 
 
-Método del Punto Fijo
+
+2. Método del Punto Fijo
 
 
       rm(list=ls())
