@@ -95,7 +95,11 @@ La forma algebraica de la ecuación, es resuelta en cada uno de los volúmenes d
  ![dominio](https://user-images.githubusercontent.com/46997659/52270826-0c0e7380-2910-11e9-9a4d-6b953ebb98c5.jpg)
 
 
+Referencias
 
+- http://ingenieria.uao.edu.co/ccmn2013/MemoriasCCMN2013/METODOS_NUMERICOS_Y_SUS_DIFERENTES%20_APLICACIONES-27Agosto.pdf
+- http://blogs.ujaen.es/prmedina/wp-content/uploads/2012/06/PRESENTACIONMFC.pdf
+- http://www.ast-ingenieria.com/capacidades-soluciones/simulacion-cfd/cfd-simulation
 
 
 
