@@ -1,0 +1,31 @@
+
+rm(list=ls())
+Fx <- function(x) 5*x-exp(x)-1
+Gx <- function(x) (exp(x)+1)/5
+
+# Halla la raiz de Fx
+puntoFijo <- function(a,b) 
+{
+  x<-(a+b)/2
+  i<-0
+  while (Gx(x) != x ) 
+  {    
+    error<-abs(a-b)/2
+    if(error > 1.e-8)
+      if (Gx(x) < x) b <- x 
+      else {a <- x}
+      else {break}  
+    if(i>5)
+    {
+      break
+    }
+      x<-(a+b)/2
+      
+      i<-i+1
+      cat("I=",i,"\tG(x) =",Gx(x),"      \tX=",x,"\tE=",error,"\n")
+      
+  }
+  
+}
+
+puntoFijo(0.5,0.8)

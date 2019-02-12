@@ -1,0 +1,45 @@
+ rm(list=ls())
+ Fx <- function(t) 3*sin(t)*cos(t)-4*sin(t)+cos(t)
+ Dx <- function(t) -sin(t) -4*cos(t) -3*cos(2*t)
+ Hx <- function(t) t - (Fx(t)/Dx(t))
+ 
+ newton <- function(a,b) 
+ {
+   
+   
+   if((Fx(a)-a)*(Fx(b)-b)<0)
+   {
+     t<-seq(a,b,0.01)
+     plot(t,Fx(t),type="l",col="red")
+     abline(h=0,col="blue")
+      
+     
+     t<-0
+     r<-Hx(t)
+     i<-0
+     while (Fx(r) != 0 ) 
+     {    
+       
+       error<-abs(Fx(t)/Dx(t))
+       
+       if(error >  1.e-4)
+         t<-r
+       else break
+       r<-Hx(t)  
+       
+       text(t,0,i,cex=0.8,col="blue")
+      
+       i<-i+1
+       
+       cat("I=",i,"\tF(t) =",Fx(t),"\tT=",signif(t, digits = 4),"\tE=",error,"\n")
+     }
+     
+   }
+   else
+   {
+     cat("No tiene raíz la funcion en ese intervalo.\n")
+   }
+   
+ }
+ 
+ newton(0,pi/4)

@@ -1,0 +1,14 @@
+rm(list=ls())
+eficiencia <- function(n) 
+{
+  x <- n
+  i <- 0
+  while ( n > 0)
+  {
+    d <- n%%2
+    n <- floor(n/2)
+    i <- i+1
+    cat("i= ",i*2,"\tn= ",n,"\t","d= ",d,"\n")
+  }
+}
+eficiencia(73)

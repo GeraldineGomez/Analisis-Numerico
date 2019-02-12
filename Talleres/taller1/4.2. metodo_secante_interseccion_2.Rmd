@@ -1,0 +1,22 @@
+# Secante - Intersección
+rm(list=ls())
+Fx <- function(x) 2+cos(3*x)
+Gx <- function(x) 2-exp(x)
+
+secante <- function(a,b) 
+{
+  x<-(Fx(b)*a-Fx(a)*b)/(Fx(b)-Fx(a))
+  error <-1
+  while (error > 1.e-4) 
+  {
+    a<-b
+    b<-x
+    x<-(Fx(b)*a-Fx(a)*b)/(Fx(b)-Fx(a))
+    
+    if (Fx(x) == 0) break
+    
+    error<-abs(Fx(x)/Gx(x))
+    cat("r=",x,"\t","E=",error,"\n")
+  }
+}
+secante(pi,3*pi/2)

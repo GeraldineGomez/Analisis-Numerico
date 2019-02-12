@@ -1,0 +1,28 @@
+rm(list=ls())
+Fx <- function(x) 2*x^4-3*x^2+3*x-4
+
+RaizReal <- function(a, b) 
+{
+  if(a/b < 1){
+    x<-a
+    d<-(b-a)/10
+    x<-(x+d)
+    E<- 1.e-4
+    while (d > E)
+    {
+      if (Fx(a)*Fx(b) < 0)
+      {
+        x<-(x-d)
+        d<-d/10
+      }
+      cat("x= ",x,"   \tE= ",d,"\n")
+    }
+    
+  }
+  else
+  {
+    cat("La función no tiene raiz real positiva.")  
+  }
+  
+}
+RaizReal(1, 2)

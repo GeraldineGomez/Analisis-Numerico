@@ -1,0 +1,26 @@
+       
+    Fx <- function(x,n,v) x-(x^n-v)/(n*x^(n-1))
+    Gx <- function(x,n,v) x^n-v
+    Hx <- function(x,n) n*x^(n-1)
+    
+    calcularRaiz <- function(v,n)
+    {
+       
+       x <- v/2
+       error <- 1
+       i <- 0
+       while(error > 1.e-8)
+       {
+          
+         x <- Fx(x,n,v)
+          
+         error <- abs(Gx(x,n,v))/Hx(x,n)
+         cat(" x= ",x," \terror= ",error,"\n")
+         i <- i + 1
+         
+       }
+       
+    
+    }
+    
+    calcularRaiz(120,3)

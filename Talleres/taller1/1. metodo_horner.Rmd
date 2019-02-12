@@ -1,0 +1,25 @@
+   rm(list=ls())   
+   Horner <-function(P,Xn)
+   {
+       y <- 0
+       i <- 1
+       while (i < length(P) + 1)
+       {
+               y = Xn*y + P[i]
+               cat("y= ",y,"  \tXn=",Xn,"\tOperaciones Mínimas = ",i*2,"\n")
+               i <- i + 1
+       }
+       
+       cat("El valor del polinomio es: ",y)
+        
+   }
+   
+   P <- c(2,0,-3,3,-4)
+   Horner(P,-2)
+   
+   P2 <- c(7,6-6,0,3,-4)
+   Horner(P2,3)
+   
+   P3 <- c(-5,0,3,0,2,-4,0)
+   Horner(P3,-1)
+   
