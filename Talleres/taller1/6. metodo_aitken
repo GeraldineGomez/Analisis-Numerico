@@ -1,0 +1,37 @@
+     
+    Fx <- function(x,n,v) x-(x^n-v)/(n*x^(n-1))
+    Gx <- function(x,n,v) x^n-v
+    Hx <- function(x,n) n*x^(n-1)
+    Xn <- function(x,x1,x2) x - (((x1-x2)^2)/(x2-2*x1+x))
+    
+    calcularRaiz <- function(v,n)
+    {
+       
+       x <- v/2
+       error <- 1
+       i <- 0
+       while(error > 1.e-8)
+       {
+         x1<-(Fx(x,n,v))
+         x2<-(Fx(x1,n,v))
+         xr<-(Xn(x,x1,x2))
+         
+         if(Fx(xr,n,v)!=0)
+         {
+           x<-x1
+         }
+         else
+         {
+           break
+         }
+         
+         error <- abs(Gx(xr,n,v))/Hx(xr,n)
+         cat(" i=", i,"\t x= ",xr,"\t   error= ",error,"\n")
+         i <- i + 1
+         
+       }
+       
+    
+    }
+    
+    calcularRaiz(120,3)
