@@ -1,0 +1,167 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
+```{r}
+#install.packages("BB")
+library(pracma)
+library(Matrix)
+library(BB)
+```
+
+Punto 4\
+Cree una funcion que cuente el numero de multiplicaciones en el metodo directo de Gauss-Jordan
+```{r}
+#Eliminacion gauss-jordan while
+A <- matrix(c(2,-5,4,1,-2.5,1,1,-4,6),byrow=T,nrow=5,ncol=5)
+b <- matrix(c(-3,5,10),nrow=5,ncol=1)
+p <- nrow(A)
+(U.pls <- cbind(A,b))
+cont=1
+U.pls[1,] <- U.pls[1,]/U.pls[1,1]
+U.pls
+i <- 2
+while (i < p+1) {
+ j <- i
+ U.pls
+ while (j < p+1) {
+  U.pls
+  U.pls[j, ] <- U.pls[j, ] - U.pls[i-1, ] * U.pls[j, i-1]
+  j <- j+1
+  cont<-cont+1
+ }
+ while (U.pls[i,i] == 0) {
+   U.pls
+  U.pls <- rbind(U.pls[-i,],U.pls[i,])
+ }
+ U.pls
+ U.pls[i,] <- U.pls[i,]/U.pls[i,i]
+ i <- i+1
+ cont<-cont+1
+}
+for (i in p:2){
+ for (j in i:2-1) {
+   U.pls
+  U.pls[j, ] <- U.pls[j, ] - U.pls[i, ] * U.pls[j, i]
+  cont<-cont+1
+ }
+}
+U.pls
+cat("Numero de multiplicaciones: ",cont,"\n")
+```
+Punto 5\
+Dado el sistema:  
+  $2x-z=1$\
+  $\beta$$x+2y-z=2$\
+  $-x+y+$$\alpha$$z=1$\
+a. Encuentre el valor de $\alpha$ y $\beta$ para asegurar la convergencia por el metodo de Jacobi.\
+
+Si la matriz del sistema original es diagonalmente dominante, seguro converge por metodo de Jacobi.\
+La matriz diagonalmente dominante se denomina como aquella matriz en la cual cada valor de su diagonal debe ser mayor que la suma de los otros coeficientes de la fila en la que se encuentra el valor.\
+En este caso beta debe ser:\
+\
+$\beta$$-1<2$\
+$\beta$$<3$\
+\
+para alpha se toma el valor de:\
+\
+$\alpha$$>-1+1$\
+$\alpha$$>0$\
+\
+En mi caso tomaremos a alpha y beta con un valor igual a 2 cada uno\
+\
+\
+b. Genere una tabla que tenga 10 iteraciones del metodo de Jacobi con vector inicial\
+$x_{0}=[1,2,3]^T$
+```{r}
+#Punto 5b
+eye <- function(n, m = n) {
+  stopifnot(is.numeric(n), length(n) == 1,is.numeric(m), length(m) == 1)
+  n <- floor(n)
+  m <- floor(m)
+  if (n <= 0 || m <= 0){
+    return(matrix(NA, 0, 0))
+  }
+  else{
+    return(base::diag(1, n, m))
+  }
+}
+
+jacobi <- function(A, b, x0 = NULL,nmax = 10, tol = .Machine$double.eps^(0.5)){
+  stopifnot(is.numeric(A), is.numeric(b))
+  n <- nrow(A)
+  if (ncol(A) != n){
+    stop("Argumento 'A' tiene que ser cuadrado.")
+  }
+  b <- c(b)
+  if (length(b) != n){
+    stop("Argumento 'b' tiene que tener valor n = ncol(A) = nrow(A).")
+  }
+  if (is.null(x0)) {
+    x0 <- rep(0, n)
+  } else {
+    stopifnot(is.numeric(x0))
+    x0 <- c(x0)
+    if (length(x0) != n){
+      stop("Argumento 'x0' tiene que tener valor n=ncol(A)=nrow(A).")
+    }
+  }
+  
+  L <- diag(diag(A))
+  U <- eye(n)
+  beta <- 2; alpha <- 2
+  
+  
+  b <- as.matrix(b)
+  x <- x0 <- as.matrix(x0)
+  r <- b - A %*% x0
+  r1 <- error <- norm(r, "f")
+  i <- 0
+  while (error > tol && i < nmax) {
+    cat("i= ",i,"\tE error= ",error,"\n")
+    i <- i + 1
+    z <- qr.solve(L, r)
+    z <- qr.solve(U, z)
+    if (beta == 2){
+      alpha <- drop(t(z) %*% r/(t(z) %*% A %*% z))
+    }
+    x <- x + alpha * z
+    r <- b - A %*% x
+    error <- norm(r, "f") / r1
+  }
+  return(list(x = c(x), i = i))
+}
+A = matrix(c(2,0,-1,
+             1,2,-1,
+             -1, 1,1), nrow=3, byrow=TRUE)
+b = c(1,2,1)
+x0 = c(1,2,3)
+jacobi(A, b, tol = 1e-8)
+```
+c. Grafique cada ecuacion y la solucion\
+\
+\
+Punto 6\
+Instalar el paquete Matrix y descomponga la matriz $A$ (del punto dos) de la forma $LU$ y factoricela de la forma $A=QR$\
+```{r}
+#Punto 6
+A = matrix(c(-8.1, -7, 6.123, -2, -1, 4,
+-3, -1, 0, -1, -5, 0.6,
+-1, 0.33, 6, 1/2), nrow=4, byrow=TRUE)
+
+luA = expand(lu(A))
+qrA <- qr(A)
+Q = qr.Q(qrA)
+R = qr.R(qrA)
+
+```
+La descomposicion $LU$ es:\
+```{r}
+luA
+```
+La factorizacion de la forma $A=QR$ es:\
+```{r}
+qrA
+```
+

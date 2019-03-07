@@ -1,0 +1,123 @@
+library(pracma)
+library(Matrix)
+
+#PUNTO 1
+n = 4
+
+D1 <- eye(n, m = n)
+D2 <- ones(n, m = n)
+D3 <- zeros(n, m = n)
+
+print("D1")
+D1
+print("D2")
+D2
+print("D3")
+D3
+
+
+A = matrix(c(-8.1, -7, 6.123, -2,
+             -1, 4,-3, -1,
+             0, -1, -5, 0.6,
+             -1, 0.33, 6, 1/2), nrow=n, byrow=TRUE)
+print("A")
+A
+b = matrix(c(1.45,3,5.12,-4), nrow=n, byrow=TRUE)
+print("b")
+b
+
+#FUNCION REALIZADA PARA EL PUNTO 3 PERO UTILIZAD ACA TAMBIEN
+diag1 <- function(M) {
+  
+  M[col(M)!=row(M)] <- 0
+  
+  return(M)
+}
+
+
+#T = -D^-1(L + U)
+D = diag1(A)
+L = tril(A,k=-1,diag = FALSE)
+U = triu(A,k=1,diag = FALSE)
+
+T = (-solve(D))%*%(L+U)
+print("T")
+print(T)
+print("Norma")
+print(norm(T,"F"))
+
+
+#PUNTO 2
+#b
+print("Gauss-Seidel:")
+tol = 1e-9
+sol = itersolve(A, b, x0=c(1,2,1,1), tol=1e-9 , method = "Gauss-Seidel")
+print(sol)
+
+#c
+
+  jacobi <- function(A,b, x0, tol){
+  xk = matrix(x0)
+  
+  i = 0
+  repeat
+  {
+    inn = matrix(b-((L+U)%*%x_k))
+    D1 = (solve(D))
+    xk1 = D1%*%inn
+    cat("Error ",it," ",norm(xk1-xk,"F")/norm(xk),"\n")
+    xk = xk1
+    i = i + 1
+    if(i == tol)
+      break
+  }
+  cat("Solucion a 5 iteraciones: ",xk,"\n")
+}
+
+x0 = c(1,2,1,1)
+jacobi(A, b, x0, 5)
+
+#PUNTO 3
+poli = charpoly(A, info = FALSE)
+
+#PUNTO 33
+
+#a)
+#Funcion modificada para eliminar la diagonal siempre
+tril1 <- function(M, k = 0) {
+  if (k == 0) {
+    M[upper.tri(M, diag = TRUE)] <- 0
+  } else {
+    M[col(M) >= row(M) + k + 1] <- 0
+    M[col(M)==row(M)] <- 0
+    
+  }
+  return(M)
+}
+
+M = matrix(c(2,3,4,1,2,3,5,6,7),nrow=3)
+print(M)
+print(tril1(M, k=1))
+
+#b)
+#Funcion para sacar una matriz diagonal dada una matriz
+diag1 <- function(M) {
+  
+  M[col(M)!=row(M)] <- 0
+  
+  return(M)
+}
+
+M = matrix(c(2,3,4,1,2,3,5,6,7),nrow=3)
+print(M)
+print(diag1(M))
+
+
+#Punto 8
+
+N <- 3
+A <- Diag(rep(3,N)) + Diag(rep(-2, N-1), k=-1) + Diag(rep(-1, N-1), k=1)
+x0 <- rep(0, N)
+b = c(4,5,6)
+
+itersolve(A, b, tol=1e-9 , method = "Gauss-Seidel")
