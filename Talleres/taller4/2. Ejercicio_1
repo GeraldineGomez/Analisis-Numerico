@@ -1,0 +1,19 @@
+f <- function(x) sin(x)
+
+trapecios <- function(a,b,m)
+{
+  
+  h <- (b-a)/m
+  s <- 0
+  i <- 0
+  while(i < m)
+  {
+     s <- s+f((a+i*h))
+     i <- i+1
+    
+  }
+  r <- h/2*(f(a)+2*s+f(b))
+  r
+}
+
+trapecios(2,0,82)
