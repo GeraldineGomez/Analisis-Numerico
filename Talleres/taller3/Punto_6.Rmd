@@ -1,0 +1,48 @@
+require(PolynomF)
+require(pracma)
+
+#Funcion
+f <- function(x)
+{
+  y0 <- c()
+  i <- 1
+  while (i <= length(x))
+  {
+    y0[i] <- tan(x[i])
+    cat(x[i],"\n")
+    cat(y0[i],"\n")
+    i <- i + 1
+  }
+  return(y0)
+}
+
+x <- seq(-pi/2, pi/2, length=10)
+y <- f(x)
+
+#Polinomio
+polinomio <- poly.calc(x,y)
+print(polinomio)
+
+y2 <- c()
+i <- 1
+
+while (i <= length(x)){
+  y2[i] <- polinomio(x[i])
+  cat(y2[i],"\n")
+  i <- i +1
+}
+
+print(y)
+print(y2)
+
+x_tan <- seq(-pi/2,pi/2,length=100)
+y_tan <- tan(x_tan)
+
+#Errores
+errores <- c()
+j <- 1
+while (j <= length(y)){
+  errores[j] <- abs(abs(y2[j]-y[j])/y[j]) *100
+  cat(errores[j],"\n")
+  j <- j +1
+}
